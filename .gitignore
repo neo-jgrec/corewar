@@ -22,6 +22,12 @@ corewar/corewar
 *tmp*
 *[Tt]emp*
 
+# Log files
+vgcore.*
+*.log
+.gcno
+.gcda
+
 # Backup files
 *~
 *.bak
