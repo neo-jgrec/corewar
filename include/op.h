@@ -67,76 +67,79 @@ static const op_t op_tab[21] = {
         10
     },
     {
-        "ld", // Load memory into register
+        "ld",   // Load memory into register
         2, {
             T_DIR | T_IND,
             T_REG
-        },          // ld <value|address>,<register>
+        },          // ld <val|addr>,<reg>
         2,
         5
     },
     {
-        "st", // Copy register value into memory/register
+        "st",   // Copy register value into memory/register
         2, {
             T_REG,
             T_IND | T_REG
-        },          // st <register>,<address|register>
+        },          // st <reg>,<addr|reg>
         3,
         5
     },
     {
-        "add", // Sum two registers and store the result in a register
+        "add",  // Sum two registers and store the result in a register
         3, {
             T_REG,
             T_REG,
             T_REG
-        },          // add <register>,<register>,<register>
+        },          // add <reg>,<reg>,<reg>
         4,
         10
     },
     {
-        "sub", // Subtract two registers and store the result in a register
+        "sub",  // Subtract two registers and store the result in a register
         3, {
             T_REG,
             T_REG,
             T_REG
-        },          // sub <register>,<register>,<register>
+        },          // sub <reg>,<reg>,<reg>
         5,
         10
     },
     {
-        "and", // Bitwise AND of two register/value/memory at address and store the result in a register
+        "and",  // Bitwise AND of two register/value/memory at address
+                // and store the result in a register
         3, {
             T_REG | T_DIR | T_IND,
             T_REG | T_DIR | T_IND,
             T_REG
-        },          // and <register|value|address>,<register|value|address>,<register>
+        },          // and <reg|val|addr>,<reg|val|addr>,<reg>
         6,
         6
     },
     {
-        "or", // Bitwise OR of two register/value/memory at address and store the result in a register
+        "or",   // Bitwise OR of two register/value/memory at address
+                // and store the result in a register
         3, {
             T_REG | T_IND | T_DIR,
             T_REG | T_IND | T_DIR,
             T_REG
-        },          // or <register|value|address>,<register|value|address>,<register>
+        },          // or <reg|val|addr>,<reg|val|addr>,<reg>
         7,
         6
     },
     {
-        "xor", // Bitwise XOR of two register/value/memory at address and store the result in a register
+        "xor",  // Bitwise XOR of two register/value/memory at address
+                // and store the result in a register
         3, {
             T_REG | T_IND | T_DIR,
             T_REG | T_IND | T_DIR,
             T_REG
-        },          // xor <register|value|address>,<register|value|address>,<register>
+        },          // xor <reg|val|addr>,<reg|val|addr>,<reg>
         8,
         6
     },
     {
-        "zjmp", // Jump to address
-        1, {T_DIR}, // zjmp <address>
+        "zjmp", // Jump to address (set PC to value)
+        1, {T_DIR}, // zjmp <val>
         9,
         20
     },
@@ -211,7 +214,7 @@ typedef struct header_s {
     char comment[COMMENT_LENGTH];
 } header_t;
 
-    #define CYCLE_TO_DIE 1536u    /* number of cycle before being declared dead */
+    #define CYCLE_TO_DIE 1536u    // number of cycle before being declared dead
     #define CYCLE_DELTA  5u
     #define NBR_LIVE     40u
 
