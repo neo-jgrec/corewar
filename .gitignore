@@ -1,0 +1,30 @@
+##
+## EPITECH PROJECT, 2023
+## Corewar
+## File description:
+## .gitignore
+##
+
+# Binary files & executables
+*.out
+*.a
+*.cor
+asm/asm
+corewar/corewar
+
+# Intermediary files
+*.o
+*.d
+
+# Temporary files
+\#*#
+.#*
+*tmp*
+*[Tt]emp*
+
+# Backup files
+*~
+*.bak
+
+# Tests files
+tests/corewar_bins
