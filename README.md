@@ -5,10 +5,6 @@
 The Corewar Epitech project is about champion fighting simulation.
 Pseudo-assembly programs are run in a virtual machine, and the goal is to call last the special instruction `live`.
 
-## Installation
-
-TODO
-
 ## Usage
 
 A champion program is a pseudo-assembly program, with the following syntax:
