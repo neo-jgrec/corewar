@@ -10,6 +10,10 @@
 #include "ice/memory.h"
 #include "ice/printf.h"
 
+#if defined(DEBUG)
+void instructions_debug(champion_t *champ, op_t op);
+#endif
+
 void live(vm_t *vm);
 void ld_op(vm_t *vm);
 void st_op(vm_t *vm);
@@ -71,6 +75,9 @@ void execute_instructon(vm_t *vm)
         return;
     }
     if (!(--PROC->cycles_left)) {
+#if defined(DEBUG)
+        instructions_debug(vm->current_champ, op_tab[code]);
+#endif
         INST = PROC->pc++;
         instructions[code](vm);
     }
