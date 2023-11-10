@@ -62,7 +62,7 @@ Here is the translation of the provided mnemonic instructions and their effects 
 |0x04 (add)|This instruction takes 3 registers as parameters, adds the contents of the first two, and puts the result into the third. This operation modifies the carry. `add r2,r3,r5` adds r2 and r3 and puts the result into r5.|
 |0x05 (sub)|Same as add but subtracts.|
 |0x06 (and)|p1 & p2 -> p3, where the third parameter is always a register. This operation modifies the carry. `and r2,%0,r3` puts r2 & 0 into r3.|
-|0x07 (or)|Same as and but with bitwise OR (`|` in C).|
+|0x07 (or)|Same as and but with bitwise OR (`\|` in C).|
 |0x08 (xor)|Same as and but with bitwise XOR (`^` in C).|
 |0x09 (zjmp)|This instruction is not followed by bytes to describe parameters. It always takes an index (`IND_SIZE`) and jumps to that index if the carry is one. If the carry is zero, zjmp does nothing but consumes the same time. `zjmp %23` sets `(PC + (23 % IDX_MOD))` in the PC if carry == 1.|
 |0x0A (ldi)|This operation modifies the carry. `ldi 3,%4,r1` reads `IND_SIZE` bytes at the address: `(PC + (3 % IDX_MOD))`, adds 4 to this value. Let's call this sum S. It reads `REG_SIZE` bytes at the address `(PC + (S % IDX_MOD))` and copies them into r1. Parameters 1 and 2 are indices.|
